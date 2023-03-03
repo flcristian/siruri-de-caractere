@@ -1,6 +1,6 @@
-#include "exercitii.h"
+#include "exercitii-set-2.h"
 
 int main()
 {
-   problema7();
+    problema1();
 }
