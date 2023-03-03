@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1677425661 source:d:\mycode\siruri-de-caractere\siruri-de-caractere\main.cpp
+1677860014 source:d:\mycode\siruri-de-caractere\siruri-de-caractere\main.cpp
 	"exercitii.h"
 
-1677425255 d:\mycode\siruri-de-caractere\siruri-de-caractere\functii.h
+1677861088 d:\mycode\siruri-de-caractere\siruri-de-caractere\functii.h
 	<iostream>
 	<fstream>
 	<string>
 	<cstring>
 
-1677425645 d:\mycode\siruri-de-caractere\siruri-de-caractere\exercitii.h
+1677861159 d:\mycode\siruri-de-caractere\siruri-de-caractere\exercitii.h
 	"functii.h"
 

@@ -106,7 +106,27 @@ void problema6(){
 }
 
 // Problema 7
+// Se considera un sir de n cuvinte. Sa se determine cuvnatul cel mai mic in
+// ordine lexicografica obtinut prin concatenarea a doua dintre cuvintele citite.
 
-// ? ? ?
+void rezolvareProblema7(char x[1000][1000], int n){
+    char s[2][1000], solutii[1000][1000];
+    int nrsolutii = 0;
+    backPb7(x, s, solutii, n, nrsolutii, 0);
+    sortPb7(solutii, nrsolutii);
+    cout << solutii[0];
+}
+
+void problema7(){
+    char x[1000][1000], nr[10]="";
+    cout << "Introduceti numarul de cuvinte : ";
+    cin.getline(nr,10);
+    int n = atoi(nr);
+    for(int i = 0;i<n;i++){
+        cout << "Introduceti cuvantul " << i + 1 << " : ";
+        cin.getline(x[i], 1000);
+    }
+    rezolvareProblema7(x, n);
+}
 
 #endif
