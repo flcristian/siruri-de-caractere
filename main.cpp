@@ -1,6 +1,6 @@
-#include "functii.h"
+#include "exercitii.h"
 
 int main()
 {
-    testConvert();
+   problema7();
 }

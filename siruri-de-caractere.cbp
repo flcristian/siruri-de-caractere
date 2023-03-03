@@ -32,6 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="exercitii.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="functii.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
