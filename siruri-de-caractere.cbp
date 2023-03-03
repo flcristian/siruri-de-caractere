@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="exercitii-set-2.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="exercitii.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="functii-set-2.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="functii.h">

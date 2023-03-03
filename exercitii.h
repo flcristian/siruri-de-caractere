@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Problema 1
+/// Problema 1
 
 void problema1(){
     char text[255]="", litera[100]="", silaba[100]="";
@@ -21,7 +21,7 @@ void problema1(){
     cout << "c) " << numarSilabe(text, silaba) << endl;
 }
 
-// Problema 2
+/// Problema 2
 
 void problema2(){
     char cuvant[100]="", litera[100]="";
@@ -33,7 +33,7 @@ void problema2(){
     cout << "Rezultatul este : " << cuvant << endl;
 }
 
-// Problema 3
+/// Problema 3
 
 void rezolvareProblema3(char* text){
     while(strlen(text) > 2){
@@ -50,7 +50,7 @@ void problema3(){
     rezolvareProblema3(cuvant);
 }
 
-// Problema 4
+/// Problema 4
 
 void problema4(){
     char x[1000][1000], nr[10];
@@ -65,7 +65,7 @@ void problema4(){
     cout << "Lungimea maxima a unei propozitii din matrice este : " << maxLenghtMatrice(x, n) << endl;
 }
 
-// Problema 5
+/// Problema 5
 
 void problema5(){
     char cuvant[100]="";
@@ -75,7 +75,7 @@ void problema5(){
     cout << cuvant << endl;
 }
 
-// Problema 6
+/// Problema 6
 
 void rezolvareProblema6(char x[1000][1000], int n){
     int m = 0, istanga = 0, idreapta = 0;
@@ -105,9 +105,9 @@ void problema6(){
     rezolvareProblema6(x, n);
 }
 
-// Problema 7
-// Se considera un sir de n cuvinte. Sa se determine cuvnatul cel mai mic in
-// ordine lexicografica obtinut prin concatenarea a doua dintre cuvintele citite.
+/// Problema 7
+/// Se considera un sir de n cuvinte. Sa se determine cuvnatul cel mai mic in
+/// ordine lexicografica obtinut prin concatenarea a doua dintre cuvintele citite.
 
 void rezolvareProblema7(char x[1000][1000], int n){
     char s[2][1000], solutii[1000][1000];
