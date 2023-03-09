@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1677863834 source:d:\mycode\siruri-de-caractere\siruri-de-caractere\main.cpp
+1678388143 source:d:\mycode\siruri-de-caractere\siruri-de-caractere\main.cpp
 	"exercitii-set-2.h"
 
 1677861088 d:\mycode\siruri-de-caractere\siruri-de-caractere\functii.h
@@ -11,10 +11,10 @@
 1677861159 d:\mycode\siruri-de-caractere\siruri-de-caractere\exercitii.h
 	"functii.h"
 
-1677866100 d:\mycode\siruri-de-caractere\siruri-de-caractere\exercitii-set-2.h
+1678389904 d:\mycode\siruri-de-caractere\siruri-de-caractere\exercitii-set-2.h
 	"functii-set-2.h"
 
-1677866262 d:\mycode\siruri-de-caractere\siruri-de-caractere\functii-set-2.h
+1678389516 d:\mycode\siruri-de-caractere\siruri-de-caractere\functii-set-2.h
 	<iostream>
 	<fstream>
 	<string>

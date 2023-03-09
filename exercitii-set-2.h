@@ -77,15 +77,22 @@ void rezolvareProblema1f(char s[200]){
 
 void rezolvareProblema1g(char s[200]){
     char sir[200]="";
-    int countCuvinte;
-    totalCuvinteSir(s, countCuvinte);
-    if(countCuvinte%2==0){
-        oglindaPare(sir, countCuvinte);
-    }
-   // else{
-     //   oglindaImpare(sir, countCuvinte);
-    //}
+    strcpy(sir, s);
+    oglindaMijloc(sir);
     cout << "g) " << sir << endl;
+}
+
+void rezolvareProblema1h(char s[200]){
+    char sir[200]="";
+    strcpy(sir, s);
+    int ct = cateLitereMici(s);
+    cout << "h) " << ct << " + ";
+    if(suntToateLitereleConsoane(s)){
+        cout << "da" << endl;
+    }
+    else{
+        cout << "nu" << endl;
+    }
 }
 
 void problema1(){
@@ -99,6 +106,82 @@ void problema1(){
     rezolvareProblema1e(s);
     rezolvareProblema1f(s);
     rezolvareProblema1g(s);
+    rezolvareProblema1h(s);
+}
+
+/// Problema 2
+/// Se citeste un sir de maxim 200 de caractere,
+/// cuvinte separate prin separatorii " ,.!?;:".
+/// a) Realizati un nou sir cu toate cuvintele palindrome.
+/// b) Afisati cuvantul ce are cele mai multe vocale.
+/// c) Modificati sirul citit astfel incat sa stergeti
+/// toate cuvintele ce au mai putin de 4 caractere.
+/// d) Care este al treilea cuvant citit? Daca sirul nu are
+/// cel putin 3 cuvinte se va afisa un mesaj.
+/// e) Stergeti cuvintele de exact 5 litere ce au prima si
+/// ultima litera identice.
+/// f) Dublati grupurile de 3 litere identice.
+/// g) Transformati ultima litera din fiecare cuvant (doar daca
+/// este litera mica) in litera mare.
+/// h) Sa se afiseze toate cuvintele din sir ce au prefix pe
+/// primul cuvant al textului.
+
+void rezolvareProblema2a(char cuvinte[200][200], int d){
+    int ct = 0;
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        char invers[200]="";
+        inversCuvant(invers, cuvinte[i]);
+        if(strcmp(invers, cuvinte[i])==0){
+            strcat(sir, cuvinte[i]);
+            strcat(sir, spatiu);
+            ct++;
+        }
+    }
+    cout << "a) ";
+    if(ct > 0){
+        cout << sir;
+    } else{
+        cout << "nu exista";
+    }
+    cout << endl;
+}
+
+void rezolvareProblema2b(char cuvinte[200][200], int d){
+    int max = 0, r = 0;
+    for(int i = 0;i<d;i++){
+        int ct = countVocale(cuvinte[i]);
+        if(ct>max){
+            max = ct;
+            r = i;
+        }
+    }
+    cout << "b) " << cuvinte[r] << endl;
+}
+
+void rezolvareProblema2c(char cuvinte[200][200], int d){
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        if(strlen(cuvinte[i])>3){
+            strcat(sir, cuvinte[i]);
+            strcat(sir, spatiu);
+        }
+    }
+    cout << "c) " << sir << endl;
+}
+
+void problema2(){
+    char s[200]="";
+    cout << "Introduceti sirul : ";
+    cin.getline(s,200);
+    char cuvinte[200][200];
+    int d;
+    separareCuvinte(s, cuvinte, d);
+    rezolvareProblema2a(cuvinte, d);
+    rezolvareProblema2b(cuvinte, d);
+    rezolvareProblema2c(cuvinte, d);
 }
 
 #endif

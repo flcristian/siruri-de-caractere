@@ -110,27 +110,72 @@ void countCuvantSir(char sir[200], char cuvant[200], int& ct){
     }
 }
 
-void totalCuvinteSir(char s[200], int& countCuvinte){
-    int countSpatii = 0;
-    for(int i = 0;i<strlen(s);i++){
-        if(s[i]==' '){
-            countSpatii++;
-        }
+void oglindaMijloc(char s[200]){
+    for(int i = 0, j = strlen(s) - 1; i < strlen(s)/2;i++,j--){
+        char r = s[i];
+        s[i]=s[j];
+        s[j]=r;
     }
-    countCuvinte = countSpatii + 1;
 }
 
-void oglindaPare(char s[200], int countCuvinte){
-    int countSpatii = 0, i = 0;
-    while(countSpatii < countCuvinte / 2){
-        if(s[i]==' '){
-            countSpatii++;
+bool esteVocala(char x){
+    char vocale[10]={'a','e','i','o','u','A','E','I','O','U'};
+    for(int i = 0;i<10;i++){
+        if(x == vocale[i]){
+            return 1;
         }
-        i++;
     }
-    char seg1[200]="";
-    strncpy(seg1, s, i);
-    cout << seg1 << endl;
+    return 0;
+}
+
+int cateLitereMici(char s[200]){
+    int count = 0;
+    for(int i = 0;i<strlen(s);i++){
+        if(s[i]>=97 && s[i]<=122){
+            count++;
+        }
+    }
+    return count;
+}
+
+bool suntToateLitereleConsoane(char s[200]){
+    for(int i = 0;i<strlen(s);i++){
+        if((s[i]>=65&&s[i]<=90) || (s[i]>=97 && s[i]<=122)){
+            if(esteVocala(s[i])){
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+void separareCuvinte(char s[200], char cuvinte[200][200], int& d){
+    d = 0;
+    char* a;
+    a = strtok(s, " ");
+    while(a != NULL){
+        strcpy(cuvinte[d], a);
+        d++;
+        a = strtok(NULL, " ");
+    }
+}
+
+void inversCuvant(char invers[200], char cuvant[200]){
+    char a[3]="";
+    for(int i = strlen(cuvant); i>-1;i--){
+        a[0]=cuvant[i];
+        strcat(invers, a);
+    }
+}
+
+int countVocale(char s[200]){
+    int ct = 0;
+    for(int i = 0;i<strlen(s);i++){
+        if(esteVocala(s[i])){
+            ct++;
+        }
+    }
+    return ct;
 }
 
 #endif
