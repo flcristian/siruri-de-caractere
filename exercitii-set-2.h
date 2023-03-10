@@ -172,6 +172,75 @@ void rezolvareProblema2c(char cuvinte[200][200], int d){
     cout << "c) " << sir << endl;
 }
 
+void rezolvareProblema2d(char cuvinte[200][200], int d){
+    cout << "d) ";
+    if(d > 2){
+        cout << cuvinte[2];
+    }
+    else{
+        cout << "nu exista";
+    }
+    cout << endl;
+}
+
+void rezolvareProblema2e(char cuvinte[200][200], int d){
+    int ct = 0;
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        if(strlen(cuvinte[i]) == 5 && (cuvinte[i][0] == cuvinte[i][strlen(cuvinte[i]) - 1])){
+            ct++;
+        }
+        else{
+            strcat(sir, cuvinte[i]);
+            strcat(sir, spatiu);
+        }
+    }
+    cout << "e) ";
+    if(ct < d){
+        cout << sir;
+    }
+    else{
+        cout << "toate cuvintele au aceste proprietati";
+    }
+    cout << endl;
+}
+
+void rezolvareProblema2f(char s[200]){
+    char sir[200]="";
+    strcpy(sir, s);
+    dublareGrupuri3(sir);
+    cout << "f) " << sir << endl;
+}
+
+void rezolvareProblema2g(char cuvinte[200][200], int d){
+    char sir[200]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        char cuvant[200]="";
+        strcpy(cuvant, cuvinte[i]);
+        int j = strlen(cuvant) - 1;
+        char a = cuvant[j];
+        if(a >= 97 && a <= 122){
+            cuvant[j] = cuvant[j] - 32;
+        }
+        strcat(sir, cuvant);
+        strcat(sir, spatiu);
+    }
+    cout << "g) " << sir << endl;
+}
+
+void rezolvareProblema2h(char cuvinte[200][200], int d){
+    char r[200]="";
+    strcpy(r, cuvinte[d-1]);
+    cout << "h) ";
+    for(int i = 0;i<d-1;i++){
+        if(strstr(cuvinte[i], r) == cuvinte[i]){
+            cout << cuvinte[i] << " ";
+        }
+    }
+}
+
 void problema2(){
     char s[200]="";
     cout << "Introduceti sirul : ";
@@ -182,6 +251,11 @@ void problema2(){
     rezolvareProblema2a(cuvinte, d);
     rezolvareProblema2b(cuvinte, d);
     rezolvareProblema2c(cuvinte, d);
+    rezolvareProblema2d(cuvinte, d);
+    rezolvareProblema2e(cuvinte, d);
+    rezolvareProblema2f(s);
+    rezolvareProblema2g(cuvinte, d);
+    rezolvareProblema2h(cuvinte, d);
 }
 
 #endif

@@ -150,9 +150,11 @@ bool suntToateLitereleConsoane(char s[200]){
 }
 
 void separareCuvinte(char s[200], char cuvinte[200][200], int& d){
+    char sir[200]="";
+    strcpy(sir, s);
     d = 0;
     char* a;
-    a = strtok(s, " ");
+    a = strtok(sir, " ");
     while(a != NULL){
         strcpy(cuvinte[d], a);
         d++;
@@ -176,6 +178,30 @@ int countVocale(char s[200]){
         }
     }
     return ct;
+}
+
+bool conditie(char s[5]){
+    for(int i = 0;i<2;i++){
+        if(s[i] != s[i+1]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void dublareGrupuri3(char s[200]){
+    char seg[5]="";
+    for(int i = 0;i<strlen(s);i++){
+        strncpy(seg, s+i, 3);
+        if(conditie(seg)){
+            char text[200]="";
+            strncpy(text, s, i+3);
+            strcat(text, seg);
+            strcat(text, s+i+3);
+            strcpy(s, text);
+            i = i + 5;
+        }
+    }
 }
 
 #endif
