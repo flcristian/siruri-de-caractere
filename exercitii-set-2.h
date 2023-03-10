@@ -131,9 +131,7 @@ void rezolvareProblema2a(char cuvinte[200][200], int d){
     char sir[10000]="";
     char spatiu[3]=" ";
     for(int i = 0;i<d;i++){
-        char invers[200]="";
-        inversCuvant(invers, cuvinte[i]);
-        if(strcmp(invers, cuvinte[i])==0){
+        if(estePalindrom(cuvinte[i])){
             strcat(sir, cuvinte[i]);
             strcat(sir, spatiu);
             ct++;
@@ -258,4 +256,93 @@ void problema2(){
     rezolvareProblema2h(cuvinte, d);
 }
 
+/// Problema 3
+/// Se citeste un sir de maxim 100 de cuvinte de la tastatura,
+/// separate prin unul sau mai multe spatii.
+/// a) Sa se stearga toate spatiile multiple.
+/// b) Sa se faca prima litera din fiecare cuvant mare si sa se
+/// inlocuiasca ultima litera cu urmatoarea din alfabet.
+/// c) Sa se inverseze toate cuvintele din sir ce NU sunt
+/// palindrome.
+/// d) Realizati un nou sir in care sa se puna toate cuvintele
+/// care au frecventa singulara in sir.
+/// e) Stergeti toate literele C si dublati toate literele D.
+
 #endif
+
+void rezolvareProblema3a(char cuvinte[200][200], int d){
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        strcat(sir, cuvinte[i]);
+        strcat(sir, spatiu);
+    }
+    cout << "a) " << sir << endl;
+}
+
+void rezolvareProblema3b(char cuvinte[200][200], int d){
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        char cuvant[200]="";
+        strcpy(cuvant, cuvinte[i]);
+        primaLiteraMare(cuvant);
+        ultimaLiteraPlus1v2(cuvant);
+        strcat(sir, cuvant);
+        strcat(sir, spatiu);
+    }
+    cout << "b) " << sir << endl;
+}
+
+void rezolvareProblema3c(char cuvinte[200][200], int d){
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    for(int i = 0;i<d;i++){
+        char cuvant[200]="";
+        strcpy(cuvant, cuvinte[i]);
+        if(!estePalindrom(cuvant)){
+            inversCuvant(cuvant);
+        }
+        strcat(sir, cuvant);
+        strcat(sir, spatiu);
+    }
+    cout << "c) " << sir << endl;
+}
+
+void rezolvareProblema3d(char s[10000]){
+    char sr[10000]="";
+    strcpy(sr, s);
+    char sir[10000]="";
+    char spatiu[3]=" ";
+    CuvantF cuvinteFrecventa[200];
+    int d;
+    frecventaCuvinteSir(sr, cuvinteFrecventa, d);
+    for(int i = 0;i<d;i++){
+        if(cuvinteFrecventa[i].frecventa == 1){
+            strcat(sir, cuvinteFrecventa[i].cuvant);
+            strcat(sir, spatiu);
+        }
+    }
+    cout << "d) " << sir << endl;
+}
+
+void rezolvareProblema3e(char s[10000]){
+    char sir[10000]="";
+    strcpy(sir, s);
+    minusCdoubleD(sir);
+    cout << "e) " << sir << endl;
+}
+
+void problema3(){
+    char s[10000]="";
+    cout << "Introduceti sirul : ";
+    cin.getline(s,200);
+    char cuvinte[200][200];
+    int d;
+    separareCuvinte(s, cuvinte, d);
+    rezolvareProblema3a(cuvinte, d);
+    rezolvareProblema3b(cuvinte, d);
+    rezolvareProblema3c(cuvinte, d);
+    rezolvareProblema3d(s);
+    rezolvareProblema3e(s);
+}

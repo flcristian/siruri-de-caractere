@@ -162,12 +162,24 @@ void separareCuvinte(char s[200], char cuvinte[200][200], int& d){
     }
 }
 
-void inversCuvant(char invers[200], char cuvant[200]){
+void inversCuvant(char cuvant[200]){
+    char invers[200]="";
     char a[3]="";
     for(int i = strlen(cuvant); i>-1;i--){
         a[0]=cuvant[i];
         strcat(invers, a);
     }
+    strcpy(cuvant, invers);
+}
+
+bool estePalindrom(char cuvant[200]){
+    char invers[200]="";
+    strcpy(invers, cuvant);
+    inversCuvant(invers);
+    if(strcmp(cuvant, invers)==0){
+        return 1;
+    }
+    return 0;
 }
 
 int countVocale(char s[200]){
@@ -200,6 +212,75 @@ void dublareGrupuri3(char s[200]){
             strcat(text, s+i+3);
             strcpy(s, text);
             i = i + 5;
+        }
+    }
+}
+
+void ultimaLiteraPlus1v2(char cuvant[200]){
+    int i = strlen(cuvant) - 1;
+    if((cuvant[i]>=65 && cuvant[i]<=89) || (cuvant[i]>=97 && cuvant[i]<=121)){
+        cuvant[i]++;
+    }
+}
+
+struct CuvantF{
+    char cuvant[200]="";
+    int id;
+    int frecventa = 1;
+};
+
+int getPosition(CuvantF cuvinte[200], int d, char cuvant[200]){
+    for(int i = 0;i<d;i++){
+        if(strcmp(cuvinte[i].cuvant, cuvant) == 0){
+            return i;
+        }
+    }
+    return -1;
+}
+
+void frecventaCuvinteSir(char s[10000], CuvantF cuvinte[200], int& d){
+    char sir[200]="";
+    strcpy(sir, s);
+    d = 0;
+    char* a;
+    a = strtok(s, " ");
+    while(a != NULL){
+        char cuvant[200]="";
+        strcpy(cuvant, a);
+        int pos = getPosition(cuvinte, d, cuvant);
+        if(pos == -1){
+            strcpy(cuvinte[d].cuvant, cuvant);
+            cuvinte[d].id = d;
+            d++;
+        } else {
+            cuvinte[pos].frecventa++;
+        }
+        a = strtok(NULL, " ");
+    }
+}
+
+bool esteC(char a){
+    if(a == 'C' || a == 'c'){
+        return 1;
+    }
+    return 0;
+}
+
+bool esteD(char a){
+    if(a == 'D' || a == 'd'){
+        return 1;
+    }
+    return 0;
+}
+
+void minusCdoubleD(char s[10000]){
+    for(int i = 0;i<strlen(s);i++){
+        if(esteC(s[i])){
+            removePozitie(s, i);
+        }
+        else if (esteD(s[i])){
+            addCaracterPozitie(s, i, s[i]);
+            i++;
         }
     }
 }
