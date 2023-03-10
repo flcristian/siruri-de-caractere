@@ -2,5 +2,5 @@
 
 int main()
 {
-    problema2();
+    problema3();
 }
